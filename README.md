@@ -40,5 +40,14 @@ npm start
 The app will open automatically in your browser at http://localhost:3000.
 
 
+### 1. Clone the Repository
+
+Clone the repository to your local machine by running the following command:
+
+```bash
+git clone <repository-url>
+```
+
+
 
 
