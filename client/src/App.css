@@ -1,4 +1,4 @@
-/* בסיסי - הגדרת הגופן */
+/* Basic - font definition */
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap');
 
 body {
@@ -128,8 +128,8 @@ body {
   border-radius: 4px;
   z-index: 0;
   display: flex;
-  justify-content: center;  /* Align content horizontally */
-  align-items: center;  /* Align content vertically */
+  justify-content: center;  /* Centers content horizontally */
+  align-items: center;  /* Centers content vertically */
 }
 
 /* Secondary Background */
@@ -141,21 +141,21 @@ body {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* מרכז אנכית */
-  align-items: center; /* מרכז אופקית */
-  text-align: center; /* יישור טקסט */
-  overflow: hidden; /* מונע גלישה */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  text-align: center; /* Center text */
+  overflow: hidden; /* Prevent overflow */
 }
 
 .weather-side .city-name {
-  font-size: 30px;  /* גודל גדול יותר של העיר */
+  font-size: 30px;  /* Larger city name */
   color: #E8F1F2;
   margin: 0;
 }
 
 .weather-side .country,
 .weather-side .last-updated {
-  font-size: 20px;  /* גודל רגיל עבור המדינה ותאריך העדכון */
+  font-size: 20px;  /* Regular size for country and update date */
   color: #A8C6CB;
   margin: 0;
 }
@@ -163,27 +163,27 @@ body {
 .weather-side .temp {
   font-size: 130px;
   color: #FFFFFF;
-  margin: 20px 0; /* רווח אנכי */
+  margin: 20px 0; /* Vertical margin */
 }
 
 .weather-side .condition {
   font-size: 30px;
   color: #C4D9DC;
-  margin: 10px 0; /* רווח אנכי */
-  margin-top: -75px; /* זה מרים את השורה ב-2 שורות */
+  margin: 10px 0; /* Vertical margin */
+  margin-top: -75px; /* Raises the line by 2 lines */
 }
 
 .weather-side .details-info {
   display: flex;
-  justify-content: space-between; /* רווחים בין הקטגוריות */
-  width: 100%; /* מתאים לתוכן */
+  justify-content: space-between; /* Spaces out the categories */
+  width: 100%; /* Fits the content */
   margin-top: 20px;
 }
 
 .weather-side .details-info div {
   font-size: 18px;
   color: #E8F1F2;
-  text-align: center; /* יישור טקסט למרכז */
+  text-align: center; /* Centers text */
 }
 
 .weather-side .details-info div p {
@@ -195,71 +195,71 @@ body {
 .temp {
   font-size: 130px;
   color: #FFFFFF;
-  margin: 20px 0; /* רווח אנכי */
+  margin: 20px 0; /* Vertical margin */
   position: relative;
 }
 
 .degree {
   position: absolute;
-  top: -20px;  /* הרמת סימן המעלות למעלה */
-  left: 110%;  /* ממקם אותו אחרי הספרה */
-  font-size: 110px;  /* שינוי גודל המעלות */
-  transform: rotate(-45deg);  /* סיבוב המעלות באלכסון */
+  top: -20px;  /* Raises the degree symbol */
+  left: 110%;  /* Positions it after the number */
+  font-size: 110px;  /* Degree symbol size */
+  transform: rotate(-45deg);  /* Rotates the degree symbol */
   color: #FFFFFF;
 }
 
-/* שורת השעות החדשה */
+/* Hourly forecast row */
 .group-hours {
   margin-top: 20px;
   font-size: 18px;
   color: #A8C6CB;
   display: flex;
-  justify-content: space-between;  /* מוודא שהשעות יימצאו בשורה אחת */
-  flex-wrap: wrap; /* מאפשר שהשעות והמעלות יופיעו בצורה גמישה */
+  justify-content: space-between;  /* Ensures hours are in one row */
+  flex-wrap: wrap; /* Allows flexible display of hours and temperatures */
 }
 
 .group-hours .hour {
-  text-align: center;  /* מיישר את השעות והטמפרטורות למרכז */
-  margin-right: 20px;  /* רווח בין השעות */
-  margin-bottom: 15px; /* רווח אנכי בין כל שעה */
+  text-align: center;  /* Centers hours and temperatures */
+  margin-right: 20px;  /* Margin between hours */
+  margin-bottom: 15px; /* Vertical margin between each hour */
 }
 
 .group-hours .hour p {
   color: #A8C6CB;
   font-weight: 300;
   font-size: 18px;
-  margin: 0; /* הסרת רווחים מיותרים */
+  margin: 0; /* Removes unnecessary margins */
 }
 
 .group-hours .hour .temperature {
   color: #FFFFFF;
   font-weight: 500;
-  font-size: 20px;  /* גודל שונה למעלות */
-  margin-top: 0;  /* אין רווח בין השעה למעלות */
+  font-size: 20px;  /* Different size for temperatures */
+  margin-top: 0;  /* No margin between hour and temperature */
 }
 
-/* עדכון צבע הכותרת של Precipitation, Humidity ו-Wind */
+/* Update color of the Precipitation, Humidity, and Wind headers */
 .weather-side .details-info div p:nth-child(1) {
-  color: #A8C6CB; /* צבע כותרת */
+  color: #A8C6CB; /* Header color */
 }
 
-/* צמצום רווחים בין Precipitation, Humidity ו-Wind כך שיהיו צמודים יותר */
+/* Reduce space between Precipitation, Humidity, and Wind so they are closer */
 .weather-side .details-info {
   display: flex;
-  justify-content: space-evenly; /* שימוש ב-space-evenly לשוויון בין האלמנטים */
-  width: 100%; /* מתאם את רוחב הקונטיינר של האלמנטים */
-  margin-top: 5px; /* מצמצם את הרווח למעלה */
+  justify-content: space-evenly; /* Space-evenly for equal spacing between elements */
+  width: 100%; /* Adjusts container width to content */
+  margin-top: 5px; /* Reduces top margin */
 }
 
 .weather-side .details-info div {
   font-size: 18px;
   color: #E8F1F2;
-  text-align: center; /* יישור טקסט למרכז */
-  margin: 0 4px; /* מרווח קטן מאוד בין כל פריט */
+  text-align: center; /* Center text */
+  margin: 0 4px; /* Small margin between each item */
 }
 
 .weather-side .details-info div p {
   font-weight: 500;
   color: #FFFFFF;
-  margin: 0; /* ביטול הרווחים הפנימיים של הכותרת */
+  margin: 0; /* Removes internal margin from headers */
 }
