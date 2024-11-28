@@ -20,7 +20,6 @@ If you haven't installed Node.js, you can download and install it from the link 
 1. Open your terminal or Command Prompt.
 2. Use the following command to clone the GitHub repository to your local machine:
 
-```bash
 git clone https://github.com/USERNAME/REPOSITORY_NAME.git
 
 
@@ -31,10 +30,12 @@ The project consists of two parts: the Client (Frontend) and Server (Backend). Y
 Client Side (Frontend)
 Navigate to the client directory:
 
-
+```bash
 cd client
-npm install
-npm start
+ npm install
+ npm start
+```
+
 
 
 The app will open automatically in your browser at http://localhost:3000.
