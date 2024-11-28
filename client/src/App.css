@@ -1,0 +1,265 @@
+/* בסיסי - הגדרת הגופן */
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Heebo', sans-serif;
+  background-color: #F1F1F1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.App {
+  display: flex;
+  position: relative;
+  width: 1366px;
+  height: 768px;
+}
+
+/* Group Content */
+.content {
+  position: absolute;
+  top: 69px;
+  left: 54px;
+  width: 480px;
+  height: 642px;
+  z-index: 1;
+}
+
+/* Logo */
+.logo img {
+  width: 98px;
+  height: 43px;
+}
+
+/* Description */
+.weather-description {
+  font-weight: 300;
+  font-size: 30px;
+  color: #707070;
+  text-align: left;
+  margin-top: 121px;
+}
+
+/* City input */
+.city-label {
+  font-size: 16px;
+  color: #707070;
+  margin-top: 120px;
+}
+
+.input-container {
+  margin-top: 20px;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 0 20px;
+  height: 63px;
+  margin-top: 10px;
+}
+
+.input-box input {
+  width: 300px;
+  border: none;
+  height: 100%;
+  font-size: 18px;
+  padding-left: 10px;
+}
+
+.input-box button {
+  background-color: #046B3B;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.input-box button:hover {
+  background-color: #046B3B;
+}
+
+/* Error Message */
+.error {
+  color: red;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+/* Weather Info */
+.weather-info {
+  margin-top: 30px;
+}
+
+.weather-info .location h2 {
+  font-size: 24px;
+}
+
+.weather-info .current-weather h1 {
+  font-size: 130px;
+  color: #ffffff;
+}
+
+.weather-info img {
+  width: 80px;
+  height: 80px;
+}
+
+.details p {
+  font-size: 14px;
+  color: #707070;
+}
+
+/* Background Side */
+.side-background {
+  position: absolute;
+  top: 54px;
+  left: 643px;
+  width: 669px;
+  height: 660px;
+  background-color: #DDE4E6;
+  border-radius: 4px;
+  z-index: 0;
+  display: flex;
+  justify-content: center;  /* Align content horizontally */
+  align-items: center;  /* Align content vertically */
+}
+
+/* Secondary Background */
+.weather-side {
+  width: 435px;
+  height: 514px;
+  background-color: #27737D;
+  border-radius: 30px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* מרכז אנכית */
+  align-items: center; /* מרכז אופקית */
+  text-align: center; /* יישור טקסט */
+  overflow: hidden; /* מונע גלישה */
+}
+
+.weather-side .city-name {
+  font-size: 30px;  /* גודל גדול יותר של העיר */
+  color: #E8F1F2;
+  margin: 0;
+}
+
+.weather-side .country,
+.weather-side .last-updated {
+  font-size: 20px;  /* גודל רגיל עבור המדינה ותאריך העדכון */
+  color: #A8C6CB;
+  margin: 0;
+}
+
+.weather-side .temp {
+  font-size: 130px;
+  color: #FFFFFF;
+  margin: 20px 0; /* רווח אנכי */
+}
+
+.weather-side .condition {
+  font-size: 30px;
+  color: #C4D9DC;
+  margin: 10px 0; /* רווח אנכי */
+  margin-top: -75px; /* זה מרים את השורה ב-2 שורות */
+}
+
+.weather-side .details-info {
+  display: flex;
+  justify-content: space-between; /* רווחים בין הקטגוריות */
+  width: 100%; /* מתאים לתוכן */
+  margin-top: 20px;
+}
+
+.weather-side .details-info div {
+  font-size: 18px;
+  color: #E8F1F2;
+  text-align: center; /* יישור טקסט למרכז */
+}
+
+.weather-side .details-info div p {
+  font-weight: 500;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.temp {
+  font-size: 130px;
+  color: #FFFFFF;
+  margin: 20px 0; /* רווח אנכי */
+  position: relative;
+}
+
+.degree {
+  position: absolute;
+  top: -20px;  /* הרמת סימן המעלות למעלה */
+  left: 110%;  /* ממקם אותו אחרי הספרה */
+  font-size: 110px;  /* שינוי גודל המעלות */
+  transform: rotate(-45deg);  /* סיבוב המעלות באלכסון */
+  color: #FFFFFF;
+}
+
+/* שורת השעות החדשה */
+.group-hours {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #A8C6CB;
+  display: flex;
+  justify-content: space-between;  /* מוודא שהשעות יימצאו בשורה אחת */
+  flex-wrap: wrap; /* מאפשר שהשעות והמעלות יופיעו בצורה גמישה */
+}
+
+.group-hours .hour {
+  text-align: center;  /* מיישר את השעות והטמפרטורות למרכז */
+  margin-right: 20px;  /* רווח בין השעות */
+  margin-bottom: 15px; /* רווח אנכי בין כל שעה */
+}
+
+.group-hours .hour p {
+  color: #A8C6CB;
+  font-weight: 300;
+  font-size: 18px;
+  margin: 0; /* הסרת רווחים מיותרים */
+}
+
+.group-hours .hour .temperature {
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 20px;  /* גודל שונה למעלות */
+  margin-top: 0;  /* אין רווח בין השעה למעלות */
+}
+
+/* עדכון צבע הכותרת של Precipitation, Humidity ו-Wind */
+.weather-side .details-info div p:nth-child(1) {
+  color: #A8C6CB; /* צבע כותרת */
+}
+
+/* צמצום רווחים בין Precipitation, Humidity ו-Wind כך שיהיו צמודים יותר */
+.weather-side .details-info {
+  display: flex;
+  justify-content: space-evenly; /* שימוש ב-space-evenly לשוויון בין האלמנטים */
+  width: 100%; /* מתאם את רוחב הקונטיינר של האלמנטים */
+  margin-top: 5px; /* מצמצם את הרווח למעלה */
+}
+
+.weather-side .details-info div {
+  font-size: 18px;
+  color: #E8F1F2;
+  text-align: center; /* יישור טקסט למרכז */
+  margin: 0 4px; /* מרווח קטן מאוד בין כל פריט */
+}
+
+.weather-side .details-info div p {
+  font-weight: 500;
+  color: #FFFFFF;
+  margin: 0; /* ביטול הרווחים הפנימיים של הכותרת */
+}
