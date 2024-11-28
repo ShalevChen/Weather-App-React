@@ -7,18 +7,18 @@ const App = () => {
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState('');
 
-  // פונקציה לעיבוד התאריך
+  // Function to format the date
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    const day = String(date.getDate()).padStart(2, '0'); // יום דו-ספרתי
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // חודש דו-ספרתי
-    const year = date.getFullYear(); // שנה
-    const hours = String(date.getHours()).padStart(2, '0'); // שעה דו-ספרתית
-    const minutes = String(date.getMinutes()).padStart(2, '0'); // דקות דו-ספרתיות
+    const day = String(date.getDate()).padStart(2, '0'); // Day with two digits
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Month with two digits
+    const year = date.getFullYear(); // Year
+    const hours = String(date.getHours()).padStart(2, '0'); // Hour with two digits
+    const minutes = String(date.getMinutes()).padStart(2, '0'); // Minutes with two digits
     return `${day}/${month}/${year} at ${hours}:${minutes}`;
   };
 
-  // פונקציה שמביאה את נתוני תחזית מזג האוויר
+  // Function to fetch weather forecast data
   const fetchWeather = async () => {
     if (!city) {
       setError('Please enter a city name');
@@ -27,25 +27,25 @@ const App = () => {
     try {
       const response = await axios.get('http://api.weatherapi.com/v1/forecast.json', {
         params: {
-          key: '6475110d702840a4a44121114242611',    // החלף ב-API key שלך
-          q: city,                // שם העיר
-          days: 1,                // עבור יום אחד
-          hours: 1                // בקשה לעדכון תחזית לפי שעה
+          key: '6475110d702840a4a44121114242611',    // Replace with your own API key
+          q: city,                // City name
+          days: 1,                // For one day
+          hours: 1                // Request hourly forecast data
         },
       });
 
-      // הדפסת נתוני ה-API
+      // Print the full API response
       console.log('Full API Response:', response.data);
       console.log('Hourly Forecast Data:', response.data.forecast.forecastday[0].hour);
 
-      // אם אין תחזית לפי שעה
+      // If no hourly forecast data
       if (!response.data.forecast || !response.data.forecast.forecastday[0].hour) {
         setError('Hourly forecast data not available.');
         setWeather(null);
         return;
       }
 
-      // אם יש נתונים, שמור אותם
+      // If data is available, store it
       setWeather(response.data);
       setError('');
     } catch (err) {
@@ -55,33 +55,33 @@ const App = () => {
     }
   };
 
-  // פונקציה שמייצרת תחזית לפי חמש השעות האחרונות
+  // Function to generate the forecast for the last five hours
   const generateHourlyForecast = () => {
     const hourlyTemps = [];
     const currentTime = new Date();
     const currentHour = currentTime.getHours();
 
-    // בחר את חמש השעות האחרונות
+    // Select the last five hours
     for (let i = 0; i < 5; i++) {
       const hourData = weather.forecast.forecastday[0].hour[currentHour - i];
-      let time = hourData.time.split(' ')[1];  // חילוץ השעה מתוך התאריך
+      let time = hourData.time.split(' ')[1];  // Extract the time from the date
 
-      // הוסף 1 לשעה, כך שתהיה שעה אחת יותר
+      // Add 1 to the hour, so it becomes one hour later
       let hour = parseInt(time.split(':')[0], 10) + 1;
       let minutes = time.split(':')[1];
 
-      // אם השעה עולה על 23, חזור ל-00
+      // If the hour exceeds 23, reset to 00
       if (hour === 24) {
         hour = 0;
       }
 
-      // עדכן את השעה החדשה
+      // Update the new time
       time = `${hour.toString().padStart(2, '0')}:${minutes}`;
 
-      const temp = Math.floor(hourData.temp_c); // טמפ' בשעה זו
+      const temp = Math.floor(hourData.temp_c); // Temperature at this hour
       hourlyTemps.push({ time, temp });
     }
-    // הופך את המערך כך שהשעות יוצגו מהעתיד לעבר
+    // Reverse the array so the hours appear from future to past
     return hourlyTemps.reverse();
   };
 
@@ -140,25 +140,25 @@ const App = () => {
               <div className="details-info">
                 <div>
                   <p>precipitation</p>
-                  <p>{Math.floor(weather.current.precip_mm)} mm</p>  {/* עיגול המספר השלם */}
+                  <p>{Math.floor(weather.current.precip_mm)} mm</p>  {/* Round the number to an integer */}
                 </div>
                 <div>
                   <p>humidity</p>
-                  <p>{Math.floor(weather.current.humidity)}%</p>  {/* עיגול המספר השלם */}
+                  <p>{Math.floor(weather.current.humidity)}%</p>  {/* Round the number to an integer */}
                 </div>
                 <div>
                   <p>wind</p>
-                  <p>{Math.floor(weather.current.wind_kph)} km/h</p>  {/* עיגול המספר השלם */}
+                  <p>{Math.floor(weather.current.wind_kph)} km/h</p>  {/* Round the number to an integer */}
                 </div>
               </div>
 
-              {/* הצגת תחזית לפי שעה */}
+              {/* Display hourly forecast */}
               <div className="group-hours">
                 {generateHourlyForecast().map((hour, index) => {
                   return (
                     <div className="hour" key={index}>
-                      <p>{hour.time}</p>  {/* מציג את השעה בלבד */}
-                      <p className="temperature">{hour.temp}°</p>  {/* מציג את הטמפרטורה ללא עשרוניות */}
+                      <p>{hour.time}</p>  {/* Displays the time only */}
+                      <p className="temperature">{hour.temp}°</p>  {/* Displays the temperature without decimals */}
                     </div>
                   );
                 })}
