@@ -25,7 +25,7 @@ git clone https://github.com/USERNAME/REPOSITORY_NAME.git
 
 
 Installing Dependencies and Running the Project
-The project consists of two parts: the Client (Frontend) and Server (Backend). You need to install and run both parts separately.
+
 
 Client Side (Frontend)
 Navigate to the client directory:
