@@ -89,7 +89,6 @@ const App = () => {
     <div className="App">
       <div className="content">
         <div className="logo">
-          <img src={`${process.env.PUBLIC_URL}/Fintek.png`} alt="Logo" />
         </div>
         <p className="weather-description">
           Use our weather app<br /> to see the weather<br /> around the world
